@@ -1,16 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-02-20T20:10:55+09:00</updated>
+  <updated>2013-02-21T13:08:13+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[mittan]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vimmer養成ギプス]]></title>
+    <link href="http://modsound.github.com/blog/2013/02/22/gips-vim/"/>
+    <updated>2013-02-22T20:44:00+09:00</updated>
+    <id>http://modsound.github.com/blog/2013/02/22/gips-vim</id>
+    <content type="html"><![CDATA[<p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の84日目です。</p>
+
+<p>みなさんvimでのカーソル移動にはhjklキーを使用されていることと思います。<br/>
+コマンドを組み合わせたエキセントリックな操作をして、まわりから<s>気味悪がられ</s>羨望の目で見られている様子が目に浮かびます。</p>
+
+<p>しかし百戦錬磨のvimmerのみなさんも、かつて遠い昔、うっかりカーソルキーを使って移動してしまい、老vimmerにたしなめられたご経験があるのではないでしょうか。</p>
+
+<p>私自身はまだまだ修練が足りません。そこでvimmer養成ギプスの意味を込めて、カーソルキーを使うとvimに叱られるプラグインを作成してみました。</p>
+
+<p><a href="https://github.com/modsound/gips-vim">https://github.com/modsound/gips-vim</a></p>
+
+<p><img src="images/user/ss_gips_20130220.png" alt="" /></p>
+
+<p>ノーマルモードでカーソルキーを押すと、移動する代わりに、vimからのメッセージをランダムにステータスラインへ表示します。</p>
+
+<p>実装としては、改行区切りのテキストファイルをreadfileでlistとして読み込み、そこからランダムにひとつ選んでecho出力しているだけです。乱数の生成は<a href="http://d.hatena.ne.jp/osyo-manga/20120224/1330010630">osyo-mangaさんのもの</a>をパクリ<s>参考にさせていただき</s>ました。また、先日2月17日に開催されたYokohama.vim #4では、thincaさんにアドバイスを頂戴いたしました。この場にて御礼申し上げます。</p>
+
+<p>なお、テキストファイルをご自身でご用意いただければ、お好みのセリフでvimに罵ってもらうことができます。<br/>
+その場合は、次のようにファイルの場所を.vimrc等でご指定ください。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let g:gips_reading_txt = '$HOME/.vim/bundle/gips-vim/autoload/dict/tsundere.txt'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(外部ファイルをプラグインからの相対パスで読み込む方法がうまくいかなかったため、デフォルトのテキストファイルもうまく読み込めずエラーになるかもしれません。なおします。すみません。ほかにもいろいろバグが出る予定です&#8230;)</p>
+
+<p>あとはShaberu.vimと連携できるようになればいいなと思います!!</p>
+
+<h2>最後に</h2>
+
+<p>今回初めてvimプラグインを作成しました(ネームスペース的な意味で)。プラグインのディレクトリ構成はどうすればいいの? とか、autoloadってなに? とか、変数のスコープとか、.vimrcから~/.vim以下にプラグインを移動したらうまく動かなくなった(>_&lt;)とか、いろいろ調べて分かることがあり、表層をさらっと撫でただけですが、vimとより仲良くなるにはプラグインを作るのが一番だなあと思いました。</p>
+
+<p>明日は@tyruさんです。ではみなさん素敵なvim lifeを!!</p>
+]]></content>
+  </entry>
   
 </feed>
