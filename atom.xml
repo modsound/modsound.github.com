@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-02-22T21:32:15+09:00</updated>
+  <updated>2013-02-22T22:01:06+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan]]></name>
@@ -42,7 +42,7 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>let g:gips_reading_txt = '$HOME/.vim/bundle/gips-vim/autoload/dict/tsundere.txt'</span></code></pre></td></tr></table></div></figure>
 
 
-<p>あとはShaberu.vimと連携できるようになればいいなと思います!!</p>
+<p>今後は添付するテキストの種類を充実させるのと、Shaberu.vimと連携できるようになればいいなと思います!!</p>
 
 <h3>最後に</h3>
 
