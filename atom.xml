@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-02-22T12:40:14+09:00</updated>
+  <updated>2013-02-22T12:43:20+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan]]></name>
@@ -44,7 +44,8 @@
 
 <p>(<s>外部ファイルをプラグインからの相対パスで読み込む方法がうまくいかなかったため、デフォルトのテキストファイルもうまく読み込めずエラーになるかもしれません。なおします。すみません。</s>ほかにもいろいろバグが出る予定です&#8230;)</p>
 
-<p>=> と思ったらmattnさんが直してくださいました!! マージしますので少々お待ちください!! ソーシャルコーディングすごい!</p>
+<p>=> と思ったらmattnさんが直してくださいました!! マージしますので少々お待ちください!! ソーシャルコーディングすごい!
+2013/02/22</p>
 
 <p>あとはShaberu.vimと連携できるようになればいいなと思います!!</p>
 
