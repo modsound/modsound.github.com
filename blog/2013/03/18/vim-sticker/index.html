@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Self Reference</title>
+  <title>Vimステッカーを作ったお話 - Self Reference</title>
   <meta name="author" content="mittan@modsound">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://modsound.github.com/">
+  <link rel="canonical" href="http://modsound.github.com/blog/2013/03/18/vim-sticker/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,15 +63,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/03/18/vim-sticker/">Vimステッカーを作ったお話</a></h1>
+      <h1 class="entry-title">Vimステッカーを作ったお話</h1>
     
     
       <p class="meta">
@@ -94,7 +91,7 @@
   </header>
 
 
-  <div class="entry-content"><p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の111日目ですこんにちは。</p>
+<div class="entry-content"><p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の111日目ですこんにちは。</p>
 
 <p>勉強会に参加すると、みなさんPCにいろいろなステッカーを貼っているのを見かけますが、私は常々、「なぜVimステッカーを貼っている<s>変態</s>人はいないのか？」と思っていました。<br/>
 そこで自分で作ってみることにしたわけです。</p>
@@ -150,22 +147,16 @@
 
 <p>意外と気軽に作れるので、みなさんもやってみるとよいと思います！</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/02/22/gips-vim/">Vimmer養成ギプス</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mittan@modsound</span></span>
+
+      
 
 
 
@@ -177,61 +168,34 @@
   
 
 
-<time datetime="2013-02-22T20:44:00+09:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-03-18T21:10:00+09:00" pubdate data-updated="true">Mar 18<span>th</span>, 2013</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の84日目です。</p>
-
-<p>みなさんvimでのカーソル移動にはhjklキーを使用されていることと思います。<br/>
-コマンドを組み合わせたエキセントリックな操作をして、今日もまた周囲から<s>気味悪がられ</s>羨望の目で見られているのでしょう。</p>
-
-<p>しかし百戦錬磨のvimmerのみなさんも、かつて遠い昔、うっかりカーソルキーを使って移動してしまい、老vimmerにたしなめられたご経験があるのではないでしょうか。</p>
-
-<p>私自身はまだまだ修練が足りません。そこでvimmer養成ギプスの意味を込めて、カーソルキーを使うとvimに叱られるプラグインを作成してみました。</p>
-
-<p><a href="https://github.com/modsound/gips-vim">https://github.com/modsound/gips-vim</a></p>
-
-<p><img src="http://modsound.github.com/images/user/ss_gips_20130220.png" alt="" /></p>
-
-<p>ノーマルモードでカーソルキーを押すと、移動する代わりに、vimからのメッセージをランダムにステータスラインへ表示します。</p>
-
-<p>実装としては、改行区切りのテキストファイルをreadfileでlistとして読み込み、そこからランダムにひとつ選んでecho出力しているだけです。乱数の生成は<a href="http://d.hatena.ne.jp/osyo-manga/20120224/1330010630">osyo-mangaさんのもの</a>をパクリ<s>参考にさせていただき</s>ました。また、先日2月17日に開催されたYokohama.vim #4では、thincaさんにアドバイスを頂戴いたしました。この場にて御礼申し上げます。</p>
-
-<p>なお、テキストファイルをご自身でご用意いただければ、お好みのセリフでvimに罵ってもらうことができます。<br/>
-その場合は、次のようにファイルの場所を.vimrc等でご指定ください。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>let g:gips_reading_txt = '$HOME/.vim/bundle/gips-vim/autoload/dict/tsundere.txt'</span></code></pre></td></tr></table></div></figure>
-
-
-<p>今後は添付するテキストの種類を充実させるのと、Shaberu.vimと連携できるようになればいいなと思います!!</p>
-
-<h3>最後に</h3>
-
-<p>今回初めてvimプラグインを作成しました(ネームスペース的な意味で)。プラグインのディレクトリ構成はどうすればいいの? とか、autoloadってなに? とか、変数のスコープとか、.vimrcから~/.vim以下にプラグインを移動したらうまく動かなくなった(>_&lt;)とか、いろいろ調べて分かることがあり、表層をさらっと撫でただけですが、vimとより仲良くなるにはプラグインを作るのが一番だなあと思いました。</p>
-
-<p>明日は@tyruさんです。ではみなさん素敵なvim lifeを!!</p>
-
-<h3>追記</h3>
-
-<p>当初、テキストファイルをプラグインからの相対パスで読み込む方法がうまく分からず、これmacでBundle使ってる人しか使えないんじゃ?? 状態だったのですが、本記事を掲載したところ、超速でmattnさん、ujihisaさんからpull requestが!!!　mergeできるまで就業時間中もワクワクプルプルしていたわけですが、ソーシャルコーディングが流行する理由を実感したのでした。</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://modsound.github.com/blog/2013/03/18/vim-sticker/" data-via="modsound" data-counturl="http://modsound.github.com/blog/2013/03/18/vim-sticker/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/22/gips-vim/" title="Previous Post: vimmer養成ギプス">&laquo; vimmer養成ギプス</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -252,7 +216,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/modsound">@modsound</a> on GitHub
@@ -282,7 +246,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -301,6 +265,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

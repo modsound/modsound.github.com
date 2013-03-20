@@ -4,14 +4,77 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-02-22T22:01:06+09:00</updated>
+  <updated>2013-03-20T17:00:47+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
-    <name><![CDATA[mittan]]></name>
+    <name><![CDATA[mittan@modsound]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vimステッカーを作ったお話]]></title>
+    <link href="http://modsound.github.com/blog/2013/03/18/vim-sticker/"/>
+    <updated>2013-03-18T21:10:00+09:00</updated>
+    <id>http://modsound.github.com/blog/2013/03/18/vim-sticker</id>
+    <content type="html"><![CDATA[<p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の111日目ですこんにちは。</p>
+
+<p>勉強会に参加すると、みなさんPCにいろいろなステッカーを貼っているのを見かけますが、私は常々、「なぜVimステッカーを貼っている<s>変態</s>人はいないのか？」と思っていました。<br/>
+そこで自分で作ってみることにしたわけです。</p>
+
+<h3>著作権の問題</h3>
+
+<p>Vimのロゴは私の作ったものではないので、私が勝手に編集したり、ステッカーにしたりするわけにはいきません。ライセンスがどうなっているかを調べる必要があります。Vimのサイトを確認しましたがロゴについては記載がなかったため、Google先生に「Vim logo license」と問い合わせてみると、利用者からの問い合わせにBram氏が返答しているメールのアーカイブがありました。</p>
+
+<blockquote><p>In general you are free to use the Vim logo for promotion of Vim.  No need to get written permission.  However, if I notice misuse of the Vim logo I might get furious and poke someone with soft cushions.  Have at you!</p></blockquote>
+
+<p><a href="http://www.mail-archive.com/vim@vim.org/msg12850.html">http://www.mail-archive.com/vim@vim.org/msg12850.html</a></p>
+
+<p>「なめた使い方しやがったらぬっこぬこにしてやんよ！」(意訳)と仰っていますが、&#8221;In general you are free to use the Vim logo for promotion of Vim&#8221;とあるので、個人でステッカーを作ってニヤニヤしたり、布教のためにそれを無償配布したりといったことは問題なさそうです。ありがたく使用することにします。ただし、このメールが特定個人に向けたもの、という点には留意する必要があると思います。</p>
+
+<p>次は印刷するためのデータです。私に絵心がなく、またVimのサイトに高解像度のロゴデータが見つからなかったので、Wikipediaに頼りました。</p>
+
+<p><img src="http://modsound.github.com/images/user/ss_vimlogo_wiki.png" alt="" /></p>
+
+<p>こちらのデータの許諾は下記のようになっています。</p>
+
+<p><a href="https://commons.wikimedia.org/wiki/File:Vimlogo.svg?uselang=ja">https://commons.wikimedia.org/wiki/File:Vimlogo.svg?uselang=ja</a></p>
+
+<blockquote><p>この作品はフリーソフトウェアです。あなたは、フリーソフトウェア財団の発行する GNU 一般公衆利用許諾書 (GNU General Public License) (バージョン2、またはそれ以降のライセンス) の規約に基づき、このライブラリの再配布や改変ができます。この作品は、有用であることを期待して配布されていますが、商用あるいは特定の目的に適するかどうかも含めて、暗黙的にも、一切保証されません。詳しくは、バージョン2およびバージョン3のGNU 一般公衆利用許諾書をご覧ください。</p></blockquote>
+
+<p>作者のD0ktorz氏に感謝して使用します。ベクター形式ばんざい！</p>
+
+<h3>印刷会社とのやり取り</h3>
+
+<p>印刷会社は<a href="http://www.digitaprint.jp/">デジタさん</a>を利用しました(ステマ)。
+印刷会社は無数にあるので、どこへ依頼してもよいと思うのですが、私が注意したのは次の点です。</p>
+
+<ul>
+<li>小ロットから発注できるか<br/>
+業者用だと1000枚から受け付けのところもあります。</li>
+<li>素材は選べるか<br/>
+耐水素材が選べたり、ラミネート加工等ができるとなんとなく安心。</li>
+<li>個人の依頼を受けているか<br/>
+同人の印刷とかやっていると、いろいろ分かってくれそうな気がする。</li>
+<li>手続きは明確か<br/>
+データはどうやって入稿すればよいか、フォーマットはai限定なのか、版下は先方で作成？それともこちらが完全版下で入稿？ 代引き等の対応は可能か、納期は何日かなどなどなど</li>
+</ul>
+
+
+<p>発注したらあとはわくわくしながらステッカーの到着を待つだけ！</p>
+
+<h3>ステッカーできたー！</h3>
+
+<p><img src="http://modsound.github.com/images/user/vim_sticker.png" alt="" />
+<img src="http://modsound.github.com/images/user/vimsticker_on_pc_01.png" alt="" /></p>
+
+<p>これがプロの仕事…！<br/>
+会社の同僚に見せたところ、「いいね。自己満足っぽくて」「いやほんとそういうの気持ち悪いんで」と好評でした！(泣)</p>
+
+<p>意外と気軽に作れるので、みなさんもやってみるとよいと思います！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vimmer養成ギプス]]></title>
