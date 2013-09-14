@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-03-20T17:00:47+09:00</updated>
+  <updated>2013-09-14T21:17:37+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan@modsound]]></name>
@@ -12,6 +12,94 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[VimからMacの内蔵辞書を引きたい]]></title>
+    <link href="http://modsound.github.com/blog/2013/09/15/macdict-dot-vim/"/>
+    <updated>2013-09-15T23:27:00+09:00</updated>
+    <id>http://modsound.github.com/blog/2013/09/15/macdict-dot-vim</id>
+    <content type="html"><![CDATA[<p><a href="http://atnd.org/events/33746">Vim Advent Calendar</a>の289日目です。2012年21月15日になりました。</p>
+
+<p>今日はMacOS X限定のお話です。それ以外の方ごめんなさい。</p>
+
+<p>Macには辞書がたくさん搭載されていますよね。ウィズダムとか大辞林とかフランス語やらドイツ語やらいろいろ。</p>
+
+<p><img src="http://modsound.github.com/images/user/ss_dictionary_20130915.png" alt="" /></p>
+
+<p>これらは辞書.appから活用できますし、SpotlightとかAlfredから引いても便利だと思うのですが、やはりVimユーザーとしてはVimから参照したいわけです。</p>
+
+<p>ただ、コマンドラインから引きたい、ということであれば、たとえば次のコマンドが提供されています。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>open dict://せめてVimVimしく</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これをVimから外部コマンドとして実行すれば辞書が使えます。</p>
+
+<p>でもこれだと辞書.appに処理を投げているので、検索のたびにGUI画面がポップアップ表示される点がどうももにょもにょします。</p>
+
+<p>そんなわけでVimから直接Macの内蔵辞書を引くプラギンをつくってみました。</p>
+
+<h2>macdict-vim</h2>
+
+<p><a href="https://github.com/modsound/macdict-vim">https://github.com/modsound/macdict-vim</a></p>
+
+<p>引数に検索したい言葉を指定すると、バッファを分割して訳語を出してくれます。<br/>
+いくつかコマンドを用意していて、カーソル位置の単語も引きます。詳細はリンク先のREADMEをご覧ください。 <br/>
+実装はObjective-Cです。</p>
+
+<p><img src="http://modsound.github.com/images/user/ss_macdict_20130915.png" alt="" /></p>
+
+<p>残念なところとしては、<br/>
+・特殊文字が表示できないので一部歯抜けになります。<br/>
+・出力結果は変なところで改行が入ってしまいます(なぜか句点の前)。</p>
+
+<h2>そのほか</h2>
+
+<p>OSがLionからMountain Lionになった際に、いくつか搭載辞書が変更されているみたいです。
+Objective-Cで次のコードを実行すると、そのPCで使用可能な辞書一覧が表示されます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#import &lt;Cocoa/Cocoa.h&gt;
+</span><span class='line'>
+</span><span class='line'>NSArray *DCSCopyAvailableDictionaries(); 
+</span><span class='line'>NSString *DCSDictionaryGetShortName(DCSDictionaryRef dictID); 
+</span><span class='line'>
+</span><span class='line'>// function show dictionaries you have
+</span><span class='line'>int main(){
+</span><span class='line'>  NSArray *availables = DCSCopyAvailableDictionaries();
+</span><span class='line'>  for (NSObject *d in availables) {
+</span><span class='line'>    NSString *sn = DCSDictionaryGetShortName((DCSDictionaryRef)d);
+</span><span class='line'>    printf("%s\n", [sn UTF8String]);
+</span><span class='line'>  }
+</span><span class='line'>return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>私の辞書一覧にWikipediaとAppleも存在したので、当初は今回のプラギンにもこの２つを入れていたのですが、
+どうにもうまく参照できないので外しました。。</p>
+
+<h2>参考にさせていただいたサイト(元ネタ)</h2>
+
+<p><a href="http://tobioka.net/716">http://tobioka.net/716</a> <br/>
+<a href="http://www.wizard-limit.net/mt/pc/archives/004552.html">http://www.wizard-limit.net/mt/pc/archives/004552.html</a></p>
+
+<p>明日は@manga_osyoさんです!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vimステッカーを作ったお話]]></title>
