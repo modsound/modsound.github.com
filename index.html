@@ -9,8 +9,8 @@
   <meta name="author" content="mittan@modsound">
 
   
-  <meta name="description" content="Vim Advent Calendarの289日目です。2012年21月15日になりました。
-昨日は@cocoponさんの色見本スクリプトを活用して、lightlineのステータス行をクールに彩るでした。 今日はMacOS X限定のお話です。それ以外の方ごめんなさい。 &hellip;">
+  <meta name="description" content="Vim Advent Calendar 318日目の記事です。昨日の担当は@unmoremasterさんでした。
+365日更新も目前ですね。Vimmmerの2012年はまだ明けません。 今回もMacのお話です。 私の家では音楽データをNASに溜め込んで、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,198 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/14/afplay-vimfiler/">MacのVimでBGMを聴く</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-14T19:47:00+09:00" pubdate data-updated="true">Oct 14<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="http://atnd.org/events/33746">Vim Advent Calendar</a> 318日目の記事です。昨日の担当は@unmoremasterさんでした。<br/>
+365日更新も目前ですね。Vimmmerの2012年はまだ明けません。</p>
+
+<p>今回もMacのお話です。</p>
+
+<p>私の家では音楽データをNASに溜め込んで、いろんなPCからネットワーク経由で再生できるようにしています。<br/>
+再生はVimから行います。VimfilerがあればネットワークパスもVimから開けるので、NAS内へ移動して音楽ファイルにxを実行し、システムで関連づけられたプログラムで再生しています。しかしその都度GUIがポップアップするので、バックグラウンドで再生できればいいなあと思っていました。</p>
+
+<p>Vimfilerはunite.vimと融合しているので、コマンドラインで音楽を再生できる環境があれば、そのコマンドへ処理を投げるactionをuniteに定義し、Vimfilerからactionを呼べば実現できそうです。</p>
+
+<p>MacOSXにはafplayという素敵なコマンドが入っているようでした。</p>
+
+<p>なんだかやれそうな気がしてきたので、.vimrcに設定してみることにしました。</p>
+
+<h2>事前にインストールが必要なもの</h2>
+
+<ul>
+<li><a href="https://github.com/Shougo/vimfiler.vim">Vimfiler</a></li>
+<li><a href="https://github.com/Shougo/vimproc.vim">vimproc</a></li>
+<li><a href="https://github.com/Shougo/unite.vim">unite.vim</a></li>
+</ul>
+
+
+<h2>設定する</h2>
+
+<h5>[再生機能]</h5>
+
+<p>まずuniteのactionを定義します。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>let s:start_afplay= {'is_selectable': 1}
+</span><span class='line'>function! s:start_afplay.func(candidates)
+</span><span class='line'>  for candidate in a:candidates
+</span><span class='line'>    call vimproc#system_bg("killall afplay")
+</span><span class='line'>    call vimproc#system_bg('afplay -q 1 ' . '"'.candidate.action__path.'"')
+</span><span class='line'>    echo "Playing... " . candidate.vimfiler__filename
+</span><span class='line'>  endfor
+</span><span class='line'>endfunction
+</span><span class='line'>unlet s:start_afplay</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&#8217;s:start_afplay&#8217;は、afplayコマンドに&#8217;candidate&#8217;を投げて処理させるfunctionにします。
+&#8216;candidates&#8217;はuniteが用意してくれます。&#8217;candidates&#8217;がどんなプロパティを提供しているかは、for文の中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
+afplayコマンドはvimproc#system_bgを通して実行しています。でもafplayじゃなくてもよい気がします。</p>
+
+<p>続いてuniteに&#8217;s:start_afplay&#8217;を登録します。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>call unite#custom_action('file', 'afplay', s:start_afplay)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで、uniteの&#8217;file&#8217; kindに、&#8217;afplay&#8217;という名で、&#8217;s:start_afplay&#8217; functionが定義されました。</p>
+
+<h5>[停止機能]</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! s:stop_afplay()
+</span><span class='line'>  call vimproc#system_bg("killall afplay")
+</span><span class='line'>endfunction
+</span><span class='line'>command! StopAfplay call s:stop_afplay()</span></code></pre></td></tr></table></div></figure>
+
+
+<p>いわゆる&#8217;ボスが来た&#8217; functionです。<br/>
+killallが不格好なのはご容赦ください。</p>
+
+<h5>[キーマッピング]</h5>
+
+<p>&#8216;af&#8217;で再生、&#8217;fa&#8217;で停止するようにしてみました。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>autocmd! FileType vimfiler nnoremap &lt;buffer&gt;&lt;expr&gt;af vimfiler#do_action('afplay')
+</span><span class='line'>nnoremap &lt;silent&gt;fa :&lt;C-u&gt;StopAfplay&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>設定全体</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>" 再生する
+</span><span class='line'>let s:start_afplay= {'is_selectable': 1}
+</span><span class='line'>function! s:start_afplay.func(candidates)
+</span><span class='line'>  for candidate in a:candidates
+</span><span class='line'>    call vimproc#system_bg("killall afplay")
+</span><span class='line'>    call vimproc#system_bg('afplay -q 1 ' . '"'.candidate.action__path.'"')
+</span><span class='line'>    echo "Playing... " . candidate.vimfiler__filename
+</span><span class='line'>  endfor
+</span><span class='line'>endfunction
+</span><span class='line'>call unite#custom_action('file', 'afplay', s:start_afplay)
+</span><span class='line'>unlet s:start_afplay
+</span><span class='line'>
+</span><span class='line'>" 停止する
+</span><span class='line'>function! s:stop_afplay()
+</span><span class='line'>  call vimproc#system_bg("killall afplay")
+</span><span class='line'>endfunction
+</span><span class='line'>command! StopAfplay call s:stop_afplay()
+</span><span class='line'>
+</span><span class='line'>" キーマッピング
+</span><span class='line'>autocmd! FileType vimfiler nnoremap &lt;buffer&gt;&lt;expr&gt;af vimfiler#do_action('afplay')
+</span><span class='line'>nnoremap &lt;silent&gt;fa :&lt;C-u&gt;StopAfplay&lt;CR&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これでVimからBGMを再生できるようになりました!</p>
+
+<h2>課題</h2>
+
+<ul>
+<li>対応していないファイル形式(flac, oggとか)に実行した場合エラーをだす。</li>
+<li>ファイル名にダブルクォーテーションがあった場合でもうまい具合に再生する。</li>
+<li>連続再生できるようにする。</li>
+<li>Mac以外でも再生できるようにする。</li>
+</ul>
+
+
+<h2>参考にさせていただいたページ</h2>
+
+<p><a href="http://hrsh7th.hatenablog.com/entry/20120229/1330525683">http://hrsh7th.hatenablog.com/entry/20120229/1330525683</a> <br/>
+<a href="http://d.hatena.ne.jp/osyo-manga/20131006/1381065976">http://d.hatena.ne.jp/osyo-manga/20131006/1381065976</a> <br/>
+<a href="http://d.hatena.ne.jp/osyo-manga/20130512/1368370556">http://d.hatena.ne.jp/osyo-manga/20130512/1368370556</a> <br/>
+<a href="http://d.hatena.ne.jp/osyo-manga/20130520/1369049201">http://d.hatena.ne.jp/osyo-manga/20130520/1369049201</a> <br/>
+<a href="http://kuchitama.hateblo.jp/entry/2013/02/08/000320">http://kuchitama.hateblo.jp/entry/2013/02/08/000320</a></p>
+
+<h2>まとめ</h2>
+
+<p>Vimはエディタであり、ブラウザであり、音楽プレイヤーでもあり、つまり良き配偶者なのです。</p>
+
+<p>明日は@akira_simpsonさんです。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -355,6 +547,10 @@ Objective-Cで次のコードを実行すると、そのPCで使用可能な辞�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/10/14/afplay-vimfiler/">MacのVimでBGMを聴く</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/09/15/macdict-dot-vim/">VimからMacの内蔵辞書を引きたい</a>
       </li>
     
@@ -398,23 +594,8 @@ Objective-Cで次のコードを実行すると、そのPCで使用可能な辞�
   <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
-
-<section>
-  <h1>Latest Tweets</h1>
-  <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
-  </ul>
-  <script type="text/javascript">
-    $.domReady(function(){
-      getTwitterFeed("modsound", 4, false);
-    });
-  </script>
-  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
-  
-    <a href="http://twitter.com/modsound" class="twitter-follow-button" data-show-count="false">Follow @modsound</a>
-  
-</section>
-
+<a class="twitter-timeline" href="https://twitter.com/modsound" data-widget-id="389429598594666496">@modsound からのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
 
