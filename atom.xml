@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-10-14T01:48:45+09:00</updated>
+  <updated>2013-10-14T12:13:51+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan@modsound]]></name>
@@ -67,17 +67,17 @@
 </span><span class='line'>unlet s:start_afplay</span></code></pre></td></tr></table></div></figure>
 
 
-<p>&#8217;s:start_afplay&#8217;は、afplayコマンドに&#8217;candidate&#8217;を投げて処理させるfunctionにします。
-&#8216;candidates&#8217;はuniteが用意してくれます。&#8217;candidates&#8217;がどんなプロパティを提供しているかは、for文の中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
+<p>&rsquo;s:start_afplay&#8217;は、afplayコマンドに&#8217;candidate&#8217;を投げて処理させるfunctionにします。
+&lsquo;candidates&#8217;はuniteが用意してくれます。&#8217;candidates&#8217;がどんなプロパティを提供しているかは、for文の中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
 afplayコマンドはvimproc#system_bgを通して実行しています。でもafplayじゃなくてもよい気がします。</p>
 
-<p>続いてuniteに&#8217;s:start_afplay&#8217;を登録します。</p>
+<p>続いてuniteに&rsquo;s:start_afplay&#8217;を登録します。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>call unite#custom_action('file', 'afplay', s:start_afplay)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>これで、uniteの&#8217;file&#8217; kindに、&#8217;afplay&#8217;という名で、&#8217;s:start_afplay&#8217; functionが定義されました。</p>
+<p>これで、uniteの&#8217;file&#8217; kindに、&#8217;afplay&#8217;という名で、&rsquo;s:start_afplay&#8217; functionが定義されました。</p>
 
 <h5>[停止機能]</h5>
 
@@ -96,7 +96,7 @@ killallが不格好なのはご容赦ください。</p>
 
 <h5>[キーマッピング]</h5>
 
-<p>&#8216;af&#8217;で再生、&#8217;fa&#8217;で停止するようにしてみました。</p>
+<p>&lsquo;af&#8217;で再生、&#8217;fa&#8217;で停止するようにしてみました。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

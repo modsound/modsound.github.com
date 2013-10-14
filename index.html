@@ -29,6 +29,11 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
 
   
 
@@ -143,17 +148,17 @@
 </span><span class='line'>unlet s:start_afplay</span></code></pre></td></tr></table></div></figure>
 
 
-<p>&#8217;s:start_afplay&#8217;は、afplayコマンドに&#8217;candidate&#8217;を投げて処理させるfunctionにします。
-&#8216;candidates&#8217;はuniteが用意してくれます。&#8217;candidates&#8217;がどんなプロパティを提供しているかは、for文の中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
+<p>&rsquo;s:start_afplay&#8217;は、afplayコマンドに&#8217;candidate&#8217;を投げて処理させるfunctionにします。
+&lsquo;candidates&#8217;はuniteが用意してくれます。&#8217;candidates&#8217;がどんなプロパティを提供しているかは、for文の中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
 afplayコマンドはvimproc#system_bgを通して実行しています。でもafplayじゃなくてもよい気がします。</p>
 
-<p>続いてuniteに&#8217;s:start_afplay&#8217;を登録します。</p>
+<p>続いてuniteに&rsquo;s:start_afplay&#8217;を登録します。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>call unite#custom_action('file', 'afplay', s:start_afplay)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>これで、uniteの&#8217;file&#8217; kindに、&#8217;afplay&#8217;という名で、&#8217;s:start_afplay&#8217; functionが定義されました。</p>
+<p>これで、uniteの&#8217;file&#8217; kindに、&#8217;afplay&#8217;という名で、&rsquo;s:start_afplay&#8217; functionが定義されました。</p>
 
 <h5>[停止機能]</h5>
 
@@ -172,7 +177,7 @@ killallが不格好なのはご容赦ください。</p>
 
 <h5>[キーマッピング]</h5>
 
-<p>&#8216;af&#8217;で再生、&#8217;fa&#8217;で停止するようにしてみました。</p>
+<p>&lsquo;af&#8217;で再生、&#8217;fa&#8217;で停止するようにしてみました。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -641,7 +646,22 @@ Objective-Cで次のコードを実行すると、そのPCで使用可能な辞�
   </script>
 
 
+<script>
+(function(w,d){
+    var c,e=d.createDocumentFragment(),f=d.getElementsByTagName("script")[0],
+    a=function(a,b){if(!d.getElementById(b)){c=d.createElement("script");
+    c.src=a;c.id=b||null;c.async=true;e.appendChild(c);}};
 
+
+    a("//platform.twitter.com/widgets.js");
+
+
+    a("//connect.facebook.net/en_US/all.js#xfbml=1","facebook-jssdk");
+
+    a("//b.st-hatena.com/js/bookmark_button_wo_al.js");
+    f.parentNode.insertBefore(e,f);
+})(this,document);
+</script>
 
 
 </body>
