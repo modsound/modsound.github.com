@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-10-14T19:10:58+09:00</updated>
+  <updated>2013-10-14T19:13:59+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan@modsound]]></name>
@@ -66,7 +66,7 @@
 
 
 <p>&rsquo;s:start_afplay&#8217;は、afplayコマンドに&#8217;candidate&#8217;を投げて処理させるfunctionにします。
-&lsquo;candidates&#8217;はuniteが用意してくれます。&#8217;candidates&#8217;がどんなプロパティを提供しているかは、for文の中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
+&lsquo;candidate&#8217;はuniteが用意してくれます。&#8217;candidate&#8217;がどんなプロパティを提供しているかは、functionの中で&#8217;echo candidate&#8217;とかするとわかります。<br/>
 afplayコマンドはvimproc#system_bgを通して実行しています。でもafplayじゃなくてもよい気がします。</p>
 
 <p>続いてuniteに&rsquo;s:start_afplay&#8217;を登録します。</p>
