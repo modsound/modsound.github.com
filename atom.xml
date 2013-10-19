@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-10-14T19:13:59+09:00</updated>
+  <updated>2013-10-20T01:22:30+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan@modsound]]></name>
@@ -12,6 +12,116 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vimmer名刺を持ってVimConfへ出かけよう]]></title>
+    <link href="http://modsound.github.com/blog/2013/10/20/visiting-card/"/>
+    <updated>2013-10-20T01:52:00+09:00</updated>
+    <id>http://modsound.github.com/blog/2013/10/20/visiting-card</id>
+    <content type="html"><![CDATA[<p><a href="http://atnd.org/events/33746">Vim Advent Calendar</a>の324日目です。<br/>
+昨日は@manga_osyoさんの「<a href="http://d.hatena.ne.jp/osyo-manga/20131019/1382191487">Vim で範囲内を検索する operator をつくった</a>」でした。</p>
+
+<p>VimConfの開催が近づいてきましたね！</p>
+
+<p>当日に向けて、プラグインを作ったり、.vimrcを見直してニヤニヤしたりと、準備に忙しいことと思いますが、VimConfはVimmer同士の交流の場でもありますので、名刺を用意しておくと便利な気がします。会社の名刺もよいですが、みなさんこの機会にVimmerとしての名刺を作成してみてはいかがでしょうか。</p>
+
+<p>この記事では、私が作成したVimmer名刺を<del>自慢</del>紹介したいと思います。</p>
+
+<h2>どこでつくる?</h2>
+
+<p>町の名刺屋さんへ行って、明朝体のテキストオンリー名刺を作ってもらうのは今や昔のこと。<br/>
+現在では自宅でPCの画面を確認しながら、デザイン・レイアウトを指定することができます。また、プリンタで自作するのとあまり費用は変わりませんし、質も段違いです。<br/>
+お店はGoogle先生で「名刺作成　web上」とか検索するとたくさん出てきます。私は費用と納期と評判を確認して、<a href="http://mhtdesign.net">マヒトデザイン</a>さんにお願いしました(ステマ)。</p>
+
+<h2>デザイン</h2>
+
+<p>デザインテンプレートが多く用意されています。それを微修正する形で作成したいと思います。<br/>
+Vimといえば緑のイメージなので、このテンプレートを選んでみました。</p>
+
+<p><img src="http://modsound.github.com/images/user/ss_mahito_design_select.png" alt="" /></p>
+
+<p>せっかくなのでVimのロゴは入れたいです。<a href="http://modsound.github.com/blog/2013/03/18/vim-sticker/">以前ステッカーを作成した際</a>はクラシックタイプのロゴだったので、今回は<a href="http://hail2u.net/blog/software/vim-tango-icon.html">Tango Vimアイコン</a>を使用させていただくことにしました。ファイル作成者のKyo Nagashimaさんに感謝。ライセンスは<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>です。</p>
+
+<p>ブラウザ上で外部ファイルとして読み込んで配置しました。</p>
+
+<p><img src="http://modsound.github.com/images/user/ss_mahito_design_vim.png" alt="" /></p>
+
+<p>いい感じ!</p>
+
+<p>では注文します。</p>
+
+<h2>費用</h2>
+
+<p>私の場合、費用内訳はこんな感じでした。2箱200枚で1000円いきませんでした。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>合計数： 2 箱  
+</span><span class='line'>印刷代金： 780 円  
+</span><span class='line'>角丸加工料金： 0 円  
+</span><span class='line'>名刺ケース料金： 0 円  
+</span><span class='line'>印刷代　お値引き： - 15 円  
+</span><span class='line'>
+</span><span class='line'>配送方法： ヤマトメール便  
+</span><span class='line'>送　料： 180 円  
+</span><span class='line'>お支払い方法： 銀行振込  
+</span><span class='line'>代引き手数料： 0 円（※代引き以外は0円となります）  
+</span><span class='line'>---------------------------  
+</span><span class='line'>合計金額 : 945 円  </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>到着</h2>
+
+<p>できました!<br/>
+これでVimConfの準備は万端です。</p>
+
+<p><img src="http://modsound.github.com/images/user/vim_visiting_card.png" alt="" /></p>
+
+<p>みなさんも、Vimmer名刺を持って<del>私と名刺交換</del>VimConfに参加してみませんか?</p>
+
+<h2>おまけ</h2>
+
+<p>thincaさんの作成された<a href="https://github.com/thinca/vim-splash">vim-splash</a>を使えば、Vimも名刺に早変わり!</p>
+
+<p><img src="http://modsound.github.com/images/user/ss_vim-splash.png" alt="" /></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>__     ___           
+</span><span class='line'>\ \   / (_)_ __ ___  
+</span><span class='line'> \ \ / /| | '_ ` _ \ 
+</span><span class='line'>  \ V / | | | | | | |
+</span><span class='line'>   \_/  |_|_| |_| |_|
+</span><span class='line'>                     
+</span><span class='line'>
+</span><span class='line'>mail:    
+</span><span class='line'>github:  
+</span><span class='line'>blog:    
+</span><span class='line'>twitter: </span></code></pre></td></tr></table></div></figure>
+
+
+<p>明日は@LeafCageさんです。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MacのVimでBGMを聴く]]></title>

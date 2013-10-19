@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Vimmer名刺を持ってVimConfへ出かけよう - Self Reference</title>
+  <meta name="author" content="mittan@modsound">
+
+  
+  <meta name="description" content="Vim Advent Calendarの324日目です。
+昨日は@manga_osyoさんの「Vim で範囲内を検索する operator をつくった」でした。 VimConfの開催が近づいてきましたね！ 当日に向けて、プラグインを作ったり、.vimrcを見直してニヤニヤしたりと、 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://modsound.github.com/blog/2013/10/20/visiting-card/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Self Reference" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script language="JavaScript">
+$(document).ready( function () {
+   $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+})
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Self Reference</a></h1>
+  
+    <h2>Are you receiving this?</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:modsound.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Vimmer名刺を持ってVimConfへ出かけよう</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-20T01:52:00+09:00" pubdate data-updated="true">Oct 20<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://atnd.org/events/33746">Vim Advent Calendar</a>の324日目です。<br/>
+昨日は@manga_osyoさんの「<a href="http://d.hatena.ne.jp/osyo-manga/20131019/1382191487">Vim で範囲内を検索する operator をつくった</a>」でした。</p>
+
+<p>VimConfの開催が近づいてきましたね！</p>
+
+<p>当日に向けて、プラグインを作ったり、.vimrcを見直してニヤニヤしたりと、準備に忙しいことと思いますが、VimConfはVimmer同士の交流の場でもありますので、名刺を用意しておくと便利な気がします。会社の名刺もよいですが、みなさんこの機会にVimmerとしての名刺を作成してみてはいかがでしょうか。</p>
+
+<p>この記事では、私が作成したVimmer名刺を<del>自慢</del>紹介したいと思います。</p>
+
+<h2>どこでつくる?</h2>
+
+<p>町の名刺屋さんへ行って、明朝体のテキストオンリー名刺を作ってもらうのは今や昔のこと。<br/>
+現在では自宅でPCの画面を確認しながら、デザイン・レイアウトを指定することができます。また、プリンタで自作するのとあまり費用は変わりませんし、質も段違いです。<br/>
+お店はGoogle先生で「名刺作成　web上」とか検索するとたくさん出てきます。私は費用と納期と評判を確認して、<a href="http://mhtdesign.net">マヒトデザイン</a>さんにお願いしました(ステマ)。</p>
+
+<h2>デザイン</h2>
+
+<p>デザインテンプレートが多く用意されています。それを微修正する形で作成したいと思います。<br/>
+Vimといえば緑のイメージなので、このテンプレートを選んでみました。</p>
+
+<p><img src="/images/user/ss_mahito_design_select.png" alt="" /></p>
+
+<p>せっかくなのでVimのロゴは入れたいです。<a href="/blog/2013/03/18/vim-sticker/">以前ステッカーを作成した際</a>はクラシックタイプのロゴだったので、今回は<a href="http://hail2u.net/blog/software/vim-tango-icon.html">Tango Vimアイコン</a>を使用させていただくことにしました。ファイル作成者のKyo Nagashimaさんに感謝。ライセンスは<a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0</a>です。</p>
+
+<p>ブラウザ上で外部ファイルとして読み込んで配置しました。</p>
+
+<p><img src="/images/user/ss_mahito_design_vim.png" alt="" /></p>
+
+<p>いい感じ!</p>
+
+<p>では注文します。</p>
+
+<h2>費用</h2>
+
+<p>私の場合、費用内訳はこんな感じでした。2箱200枚で1000円いきませんでした。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>合計数： 2 箱  
+</span><span class='line'>印刷代金： 780 円  
+</span><span class='line'>角丸加工料金： 0 円  
+</span><span class='line'>名刺ケース料金： 0 円  
+</span><span class='line'>印刷代　お値引き： - 15 円  
+</span><span class='line'>
+</span><span class='line'>配送方法： ヤマトメール便  
+</span><span class='line'>送　料： 180 円  
+</span><span class='line'>お支払い方法： 銀行振込  
+</span><span class='line'>代引き手数料： 0 円（※代引き以外は0円となります）  
+</span><span class='line'>---------------------------  
+</span><span class='line'>合計金額 : 945 円  </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>到着</h2>
+
+<p>できました!<br/>
+これでVimConfの準備は万端です。</p>
+
+<p><img src="/images/user/vim_visiting_card.png" alt="" /></p>
+
+<p>みなさんも、Vimmer名刺を持って<del>私と名刺交換</del>VimConfに参加してみませんか?</p>
+
+<h2>おまけ</h2>
+
+<p>thincaさんの作成された<a href="https://github.com/thinca/vim-splash">vim-splash</a>を使えば、Vimも名刺に早変わり!</p>
+
+<p><img src="/images/user/ss_vim-splash.png" alt="" /></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>__     ___           
+</span><span class='line'>\ \   / (_)_ __ ___  
+</span><span class='line'> \ \ / /| | '_ ` _ \ 
+</span><span class='line'>  \ V / | | | | | | |
+</span><span class='line'>   \_/  |_|_| |_| |_|
+</span><span class='line'>                     
+</span><span class='line'>
+</span><span class='line'>mail:    
+</span><span class='line'>github:  
+</span><span class='line'>blog:    
+</span><span class='line'>twitter: </span></code></pre></td></tr></table></div></figure>
+
+
+<p>明日は@LeafCageさんです。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">mittan@modsound</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-20T01:52:00+09:00" pubdate data-updated="true">Oct 20<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/14/afplay-vimfiler/" title="Previous Post: MacのVimでBGMを聴く">&laquo; MacのVimでBGMを聴く</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/20/visiting-card/">Vimmer名刺を持ってVimConfへ出かけよう</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/10/14/afplay-vimfiler/">MacのVimでBGMを聴く</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/09/15/macdict-dot-vim/">VimからMacの内蔵辞書を引きたい</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/03/18/vim-sticker/">Vimステッカーを作ったお話</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/22/gips-vim/">vimmer養成ギプス</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/modsound">@modsound</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'modsound',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+<a class="twitter-timeline" href="https://twitter.com/modsound" data-widget-id="389429598594666496">@modsound からのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - mittan@modsound -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+  - <span class="credit">Theme by <a href="http://www.gehaxelt.in">Gehaxelt</a></span>
+  <span class="credit">and <a href="http://www.it-solutions-neef.de">IT Solutions Neef</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
