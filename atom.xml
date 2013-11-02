@@ -4,7 +4,7 @@
   <title><![CDATA[Self Reference]]></title>
   <link href="http://modsound.github.com/atom.xml" rel="self"/>
   <link href="http://modsound.github.com/"/>
-  <updated>2013-11-03T04:45:46+09:00</updated>
+  <updated>2013-11-03T04:53:05+09:00</updated>
   <id>http://modsound.github.com/</id>
   <author>
     <name><![CDATA[mittan@modsound]]></name>
@@ -18,7 +18,7 @@
     <link href="http://modsound.github.com/blog/2013/11/03/mac-notify-vim/"/>
     <updated>2013-11-03T09:59:00+09:00</updated>
     <id>http://modsound.github.com/blog/2013/11/03/mac-notify-vim</id>
-    <content type="html"><![CDATA[<p>Vim Advent Calenderの338日目ですこんにちは。</p>
+    <content type="html"><![CDATA[<p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の338日目ですこんにちは。</p>
 
 <p>Macのお話です。<br/>
 OSXには、画面の右上にメールの新着やスケジュールの通知、ソフトウェアのアップデート等をポップアップ通知してくれる通知センター機能があります。</p>
@@ -81,11 +81,11 @@ Vim Girlが天気予報してくれるように設定してみました。秘書
 <p><img src="http://modsound.github.com/images/user/ss_mac_notify_weather.png" alt="" /></p>
 
 <p>いい感じです。<br/>
-コンパイルが完了したときとか、未操作時間が10分を超えたときとかにお知らせしてくれると面白いかもしれません。</p>
+コンパイルが完了したときとか、未操作時間が10分を超えたときとかに通知してくれると面白いかもしれません。</p>
 
-<p>みなさんもMacNotify.vimを使ってVim Girlを秘書にしてみませんか?</p>
+<p>みなさんもMacNotify.vimを使ってVimを秘書にしてみませんか?</p>
 
-<p>明日は@thincaさんです！</p>
+<p>明日のVim Advent Calendarは@thincaさんです！</p>
 ]]></content>
   </entry>
   
