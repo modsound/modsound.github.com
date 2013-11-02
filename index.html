@@ -9,8 +9,8 @@
   <meta name="author" content="mittan@modsound">
 
   
-  <meta name="description" content="Vim Advent Calendarの324日目です。
-昨日は@manga_osyoさんの「Vim で範囲内を検索する operator をつくった」でした。 VimConfの開催が近づいてきましたね！ 当日に向けて、プラグインを作ったり、.vimrcを見直してニヤニヤしたりと、 &hellip;">
+  <meta name="description" content="Vim Advent Calenderの338日目ですこんにちは。 Macのお話です。
+OSXには、画面の右上にメールの新着やスケジュールの通知、ソフトウェアのアップデート等をポップアップ通知してくれる通知センター機能があります。 主にシステムからの通知に使われていたのですが、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +70,107 @@ $(document).ready( function () {
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/11/03/mac-notify-vim/">MacのVimで通知センターを使う</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-03T09:59:00+09:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Vim Advent Calenderの338日目ですこんにちは。</p>
+
+<p>Macのお話です。<br/>
+OSXには、画面の右上にメールの新着やスケジュールの通知、ソフトウェアのアップデート等をポップアップ通知してくれる通知センター機能があります。</p>
+
+<p><img src="/images/user/ss_mac_notify.png" alt="" /></p>
+
+<p>主にシステムからの通知に使われていたのですが、OSがMavericksとなり、ユーザーもコマンドラインから利用できるようになりました。<br/>
+こんな感じで使えます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'display notification "VimConfは11月16日開催です♪" with title "Vim Girl"' | osascript'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>display notificationの引数に表示したい文字列を指定して、AppleScriptとして実行します。<br/>
+with titleやsubtitleを指定すれば、メッセージのタイトルを変更することができます。</p>
+
+<p>では、Vimからも利用できるようにしてみましょう。<br/>
+.vimrcに直接書いてみます。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! s:mac_notify(say)
+</span><span class='line'>  call vimproc#system("echo 'display notification "."\"".a:say."\" with title \"Vim\"' | osascript")
+</span><span class='line'>endfunction
+</span><span class='line'>command! -nargs=1 MacNotify call s:mac_notify(&lt;q-args&gt;)
+</span><span class='line'>command! -nargs=1 MacNotifyExpand call s:mac_notify(&lt;args&gt;)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>MacNotifyコマンドを定義して、引数の文字列を表示するようにしました。<br/>
+変数とかを指定して展開したい場合は、MacNotifyExpandコマンドの方を使います。<br/>
+実行には<a href="https://github.com/Shougo/vimproc.vim">vimproc</a>が必要です。</p>
+
+<p>VimScript化してgithubにもあげました。<br/>
+<a href="https://github.com/modsound/mac_notify-vim.git">https://github.com/modsound/mac_notify-vim.git</a></p>
+
+<p>以下利用例です。<br/>
+Vim Girlが天気予報してくれるように設定してみました。秘書っぽい機能です。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! s:weather_report()
+</span><span class='line'>  let g:weather = system("curl --silent http://weather.livedoor.com/forecast/rss/area/130010.xml
+</span><span class='line'>  \ | grep '&lt;description&gt;'
+</span><span class='line'>  \ | sed -e 's/&lt;description&gt;//g'
+</span><span class='line'>  \ | sed -e 's@&lt;/description&gt;@@g' | head -n 3 | tail -n 1")
+</span><span class='line'>  exec "MacNotifyExpand g:weather"
+</span><span class='line'>endfunction
+</span><span class='line'>command! WeatherReport call s:weather_report()</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="/images/user/ss_mac_notify_weather.png" alt="" /></p>
+
+<p>いい感じです。<br/>
+コンパイルが完了したときとか、未操作時間が10分を超えたときとかに通知すると面白いかもしれません。</p>
+
+<p>みなさんもMacNotify.vimを使ってVim Girlを秘書にしてみませんか?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -687,6 +788,10 @@ Objective-Cで次のコードを実行すると、そのPCで使用可能な辞�
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/11/03/mac-notify-vim/">MacのVimで通知センターを使う</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/10/20/visiting-card/">Vimmer名刺を持ってVimConfへ出かけよう</a>
       </li>
     
@@ -700,10 +805,6 @@ Objective-Cで次のコードを実行すると、そのPCで使用可能な辞�
     
       <li class="post">
         <a href="/blog/2013/03/18/vim-sticker/">Vimステッカーを作ったお話</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/22/gips-vim/">vimmer養成ギプス</a>
       </li>
     
   </ul>

@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>vimmer養成ギプス - Self Reference</title>
+  <title>MacのVimで通知センターを使う - Self Reference</title>
   <meta name="author" content="mittan@modsound">
 
   
-  <meta name="description" content="Vim Advent Calenderの84日目です。 みなさんvimでのカーソル移動にはhjklキーを使用されていることと思います。
-コマンドを組み合わせたエキセントリックな操作をして、今日もまた周囲から気味悪がられ羨望の目で見られているのでしょう。 しかし百戦錬磨のvimmerのみなさんも、 &hellip;">
+  <meta name="description" content="Vim Advent Calenderの338日目ですこんにちは。 Macのお話です。
+OSXには、画面の右上にメールの新着やスケジュールの通知、ソフトウェアのアップデート等をポップアップ通知してくれる通知センター機能があります。 主にシステムからの通知に使われていたのですが、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://modsound.github.com/blog/2013/02/22/gips-vim/">
+  <link rel="canonical" href="http://modsound.github.com/blog/2013/11/03/mac-notify-vim/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,7 +73,7 @@ $(document).ready( function () {
   
   <header>
     
-      <h1 class="entry-title">Vimmer養成ギプス</h1>
+      <h1 class="entry-title">MacのVimで通知センターを使う</h1>
     
     
       <p class="meta">
@@ -89,48 +89,79 @@ $(document).ready( function () {
   
 
 
-<time datetime="2013-02-22T20:44:00+09:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+<time datetime="2013-11-03T09:59:00+09:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p><a href="http://atnd.org/events/33746">Vim Advent Calender</a>の84日目です。</p>
+<div class="entry-content"><p>Vim Advent Calenderの338日目ですこんにちは。</p>
 
-<p>みなさんvimでのカーソル移動にはhjklキーを使用されていることと思います。<br/>
-コマンドを組み合わせたエキセントリックな操作をして、今日もまた周囲から<s>気味悪がられ</s>羨望の目で見られているのでしょう。</p>
+<p>Macのお話です。<br/>
+OSXには、画面の右上にメールの新着やスケジュールの通知、ソフトウェアのアップデート等をポップアップ通知してくれる通知センター機能があります。</p>
 
-<p>しかし百戦錬磨のvimmerのみなさんも、かつて遠い昔、うっかりカーソルキーを使って移動してしまい、老vimmerにたしなめられたご経験があるのではないでしょうか。</p>
+<p><img src="/images/user/ss_mac_notify.png" alt="" /></p>
 
-<p>私自身はまだまだ修練が足りません。そこでvimmer養成ギプスの意味を込めて、カーソルキーを使うとvimに叱られるプラグインを作成してみました。</p>
-
-<p><a href="https://github.com/modsound/gips-vim">https://github.com/modsound/gips-vim</a></p>
-
-<p><img src="http://modsound.github.com/images/user/ss_gips_20130220.png" alt="" /></p>
-
-<p>ノーマルモードでカーソルキーを押すと、移動する代わりに、vimからのメッセージをランダムにステータスラインへ表示します。</p>
-
-<p>実装としては、改行区切りのテキストファイルをreadfileでlistとして読み込み、そこからランダムにひとつ選んでecho出力しているだけです。乱数の生成は<a href="http://d.hatena.ne.jp/osyo-manga/20120224/1330010630">osyo-mangaさんのもの</a>をパクリ<s>参考にさせていただき</s>ました。また、先日2月17日に開催されたYokohama.vim #4では、thincaさんにアドバイスを頂戴いたしました。この場にて御礼申し上げます。</p>
-
-<p>なお、テキストファイルをご自身でご用意いただければ、お好みのセリフでvimに罵ってもらうことができます。<br/>
-その場合は、次のようにファイルの場所を.vimrc等でご指定ください。</p>
+<p>主にシステムからの通知に使われていたのですが、OSがMavericksとなり、ユーザーもコマンドラインから利用できるようになりました。<br/>
+こんな感じで使えます。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>let g:gips_reading_txt = '$HOME/.vim/bundle/gips-vim/autoload/dict/tsundere.txt'</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'display notification "VimConfは11月16日開催です♪" with title "Vim Girl"' | osascript'</span></code></pre></td></tr></table></div></figure>
 
 
-<p>今後は添付するテキストの種類を充実させるのと、Shaberu.vimと連携できるようになればいいなと思います!!</p>
+<p>display notificationの引数に表示したい文字列を指定して、AppleScriptとして実行します。<br/>
+with titleやsubtitleを指定すれば、メッセージのタイトルを変更することができます。</p>
 
-<h3>最後に</h3>
+<p>では、Vimからも利用できるようにしてみましょう。<br/>
+.vimrcに直接書いてみます。</p>
 
-<p>今回初めてvimプラグインを作成しました(ネームスペース的な意味で)。プラグインのディレクトリ構成はどうすればいいの? とか、autoloadってなに? とか、変数のスコープとか、.vimrcから~/.vim以下にプラグインを移動したらうまく動かなくなった(>_&lt;)とか、いろいろ調べて分かることがあり、表層をさらっと撫でただけですが、vimとより仲良くなるにはプラグインを作るのが一番だなあと思いました。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! s:mac_notify(say)
+</span><span class='line'>  call vimproc#system("echo 'display notification "."\"".a:say."\" with title \"Vim\"' | osascript")
+</span><span class='line'>endfunction
+</span><span class='line'>command! -nargs=1 MacNotify call s:mac_notify(&lt;q-args&gt;)
+</span><span class='line'>command! -nargs=1 MacNotifyExpand call s:mac_notify(&lt;args&gt;)</span></code></pre></td></tr></table></div></figure>
 
-<p>明日は@tyruさんです。ではみなさん素敵なvim lifeを!!</p>
 
-<h3>追記</h3>
+<p>MacNotifyコマンドを定義して、引数の文字列を表示するようにしました。<br/>
+変数とかを指定して展開したい場合は、MacNotifyExpandコマンドの方を使います。<br/>
+実行には<a href="https://github.com/Shougo/vimproc.vim">vimproc</a>が必要です。</p>
 
-<p>当初、テキストファイルをプラグインからの相対パスで読み込む方法がうまく分からず、これmacでBundle使ってる人しか使えないんじゃ?? 状態だったのですが、本記事を掲載したところ、超速でmattnさん、ujihisaさんからpull requestが!!!　mergeできるまで就業時間中もワクワクプルプルしていたわけですが、ソーシャルコーディングが流行する理由を実感したのでした。</p>
+<p>VimScript化してgithubにもあげました。<br/>
+<a href="https://github.com/modsound/mac_notify-vim.git">https://github.com/modsound/mac_notify-vim.git</a></p>
+
+<p>以下利用例です。<br/>
+Vim Girlが天気予報してくれるように設定してみました。秘書っぽい機能です。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function! s:weather_report()
+</span><span class='line'>  let g:weather = system("curl --silent http://weather.livedoor.com/forecast/rss/area/130010.xml
+</span><span class='line'>  \ | grep '&lt;description&gt;'
+</span><span class='line'>  \ | sed -e 's/&lt;description&gt;//g'
+</span><span class='line'>  \ | sed -e 's@&lt;/description&gt;@@g' | head -n 3 | tail -n 1")
+</span><span class='line'>  exec "MacNotifyExpand g:weather"
+</span><span class='line'>endfunction
+</span><span class='line'>command! WeatherReport call s:weather_report()</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="/images/user/ss_mac_notify_weather.png" alt="" /></p>
+
+<p>いい感じです。<br/>
+コンパイルが完了したときとか、未操作時間が10分を超えたときとかに通知すると面白いかもしれません。</p>
+
+<p>みなさんもMacNotify.vimを使ってVim Girlを秘書にしてみませんか?</p>
 </div>
 
 
@@ -153,7 +184,7 @@ $(document).ready( function () {
   
 
 
-<time datetime="2013-02-22T20:44:00+09:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+<time datetime="2013-11-03T09:59:00+09:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2013</time>
       
 
 
@@ -168,8 +199,8 @@ $(document).ready( function () {
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2013/10/20/visiting-card/" title="Previous Post: Vimmer名刺を持ってVimConfへ出かけよう">&laquo; Vimmer名刺を持ってVimConfへ出かけよう</a>
       
-        <a class="basic-alignment right" href="/blog/2013/03/18/vim-sticker/" title="Next Post: Vimステッカーを作ったお話">Vimステッカーを作ったお話 &raquo;</a>
       
     </p>
   </footer>
